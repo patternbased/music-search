@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<div data-role="page">
+  <div data-role="header">
+    <h1>PB Range Slider Test</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <form method="post" action="print.php">
+      <div data-role="rangeslider">
+        <label for="rhythm-min">Rhythm:</label>
+        <input type="range" name="rhythm-min" id="rhythm-min" value="0" min="0" max="10">
+        <label for="rhythm-max">Rhythm:</label>
+        <input type="range" name="rhythm-max" id="rhythm-max" value="10" min="0" max="10">
+      </div>
+        <input type="submit" data-inline="true" value="Submit">
+      </form>
+  </div>
+</div>
+
+</body>
+</html>

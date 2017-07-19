@@ -1,0 +1,71 @@
+.slider{
+	width:300px;
+	height:100px;
+	background-color:#242424;
+	color:blue;
+}
+
+.sliderHeader{
+	position:relative;
+	background-color:#444444;
+	color:blue;
+}
+
+.sliderTitle{
+	color:#33b5e5;
+	font-weight:bold;
+}
+
+.sliderValue{
+	color:#33b5e5;
+}
+
+.blueSlider{
+	position:relative;
+	left:30px;
+	top:30px;
+}
+
+.blueSlider .selected-bar{
+	background-color:#33b5e5;
+}
+
+.blueSlider .back-bar {
+	background-color:#888888;
+	height: 3px;
+	position: relative;
+}
+
+.blueSlider .back-bar .pointer {
+	background-color: transparent;
+	background-image:url("blueThumb.png");
+    width: 44px;
+    height: 44px;
+	top:-20px;
+	left:0px;
+}
+
+#sliderRhythm{
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+
+#sliderSpeed{
+	position:absolute;
+	left:0px;
+	top:120px;
+}
+
+#sliderLight{
+	position:absolute;
+	left:0px;
+	top:120px;
+}
+
+#sliderCom{
+	position:absolute;
+	left:0px;
+	top:120px;
+}
+

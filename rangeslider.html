@@ -1,0 +1,123 @@
+<html>
+
+<head>
+
+<!-- VVV Put these into the HEAD of your document VVV -->
+	<script type='text/javascript' src="jquery-2.1.1.min.js"></script>
+	<link rel="stylesheet" href="jRange-master/jquery.range.css">
+	<script src="jRange-master/jquery.range.js"></script>
+	<link rel="stylesheet" href="Styles.css" type="text/css"> <!-- Your style changes go in here -->
+<!-- ^^^ Put these into the HEAD of your document ^^^ -->
+
+</head>
+
+<body>
+
+<!-- VVV Put this script block somewhere into the BODY of your document VVV -->
+	<script>
+		$(document).ready(function(){
+
+			$(".range-slider").change(function(){
+
+				//The sliders send a message when they are created that we want to ignore.
+				//   It will be their initialization call with the values (min, 'undefined')
+				//   We'll ignore their statechanges until they complete that calls.
+				values = $(this).val().split(',');
+				min = values[0];
+				max = values[1];
+				if(max == 'undefined') //1st ignore
+					return;
+
+				//Show the current range on the header for the slider ('myRange') tells us which slider was changed
+				$('#slider' + $(this).attr('myRange') + 'CurrentRange').html(min + ' - ' + max);
+
+			});
+
+			//If you want to change the size or # of steps in the sliders then change the values below...
+			// the "blueSlider" is a style I created that you can find in the Styles.css.
+			// Note that all the sliders are currently using the same class so they will all be identical.
+			$(".range-slider").jRange({
+				test: 'a test',
+			    from: 0,
+			    to: 10,
+			    step: 1,
+			    width: 250,
+				theme: 'blueSlider',
+			    showLabels: false,
+			    showScale: false,
+			    isRange : true
+			});
+
+		});
+	</script>
+<!-- ^^^ Put this script block somewhere into the BODY of your document ^^^ -->
+
+	<form action='music_search_process.php' method=POST>
+
+<!--
+		This form is just to show you where to put the divs below: each div = 1 slider.
+		You'll put the divs below into your current form and ignore what the form on this page.
+
+		When your form is submitted there will be 4 hidden fields, each containing the range selected for it.
+		ex: Rhythm=3,6
+		Your form handler will have to break the "3,6" apart to get at each range value.
+
+-->
+
+<!-- VVV Put these divs into the form that's taking input on your document VVV -->
+
+		<div id='sliderRhythm' class='slider'>
+			<div id='sliderRhythmHeader' class='sliderHeader'>
+				<span class='sliderTitle'>Rhythm</span>
+				<br>
+				<span class='sliderValue' id='sliderRhythmCurrentRange'>0 - 10</span>
+			</div>
+			<div id='sliderRhythmRange' class='sliderRange'>
+				<input type='hidden' class="range-slider" value="5" myRange='Rhythm' id='Rhythm' name='Rhythm'/>
+			</div>
+		<div>
+
+		<div id='sliderSpeed' class='slider'>
+			<div id='sliderSpeedHeader' class='sliderHeader'>
+				<span class='sliderTitle'>Speed</span>
+				<br>
+				<span class='sliderValue' id='sliderSpeedCurrentRange'>0 - 10</span>
+			</div>
+			<div id='sliderSpeedRange' class='sliderRange'>
+				<input type='hidden' class="range-slider" value="5" myRange='Speed' id='Speed' name='Speed'/>
+			</div>
+		<div>
+
+		<div id='sliderLight' class='slider'>
+			<div id='sliderLightHeader' class='sliderHeader'>
+				<span class='sliderTitle'>Light</span>
+				<br>
+				<span class='sliderValue' id='sliderLightCurrentRange'>0 - 10</span>
+			</div>
+			<div id='sliderLightRange' class='sliderRange'>
+				<input type='hidden' class="range-slider" value="5" myRange='Light'  id='Light' name='Light'/>
+			</div>
+		<div>
+
+		<div id='sliderCom' class='slider'>
+			<div id='sliderComHeader' class='sliderHeader'>
+				<span class='sliderTitle'>Com</span>
+				<br>
+				<span class='sliderValue' id='sliderComCurrentRange'>0 - 10</span>
+			</div>
+			<div id='sliderComRange' class='sliderRange'>
+				<input type='hidden' class="range-slider" value="5" myRange='Com' id='Com' name='Com'/>
+			</div>
+		<div>
+
+<!-- ^^^ Put these divs into the form that's taking input on your document ^^^ -->
+<br><br><br>
+<div>
+	<input type='submit' Value="Search Music"/>
+</div>
+
+	</form>
+
+</body>
+
+</html>
