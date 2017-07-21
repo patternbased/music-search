@@ -1,0 +1,54 @@
+<html>
+
+<script>
+function connectFrames(now, next) {
+  now.bind(SC.Widget.Events.FINISH, function() {
+    next.play();
+    now.unbind(SC.Widget.Events.FINISH);
+  });
+}
+
+//One query to select all iframes inside .playAll
+var playAll = $('.playAll iframe');
+
+//The jQuery "loop" http://api.jquery.com/each/
+playAll.each(function(index) {
+  var now = playAll[index],
+      next = playAll[index + 1];
+
+  //If their is no next... skip.
+  if(!next) return;
+
+  //Use the frames we have in our function
+  connectFrames(now, next);
+});
+
+//initiator from example
+$("#playSound").click(function() {
+    playAll[0].toggle();
+});
+</script>
+
+<body>
+<div id="scPlaylist">
+    <h2>December 2014</h2>
+    <ul id="songWidth" class="playAll">
+        <li>
+            <div class="miniScBar"></div>
+            <iframe width=100%" height="200" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/154271795?&amp;color=9cff00&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true" style="vertical-align: bottom"></iframe>
+            <div class="name_of_track_container">
+                <h3 class="name_of_track">Mister Lies - False Astronomy</h3>
+            </div>
+        </li>
+        <li>
+            <div class="miniScBar"></div>
+            <iframe width=100%" height="200" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/183101485?&amp;color=9cff00&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true" style="vertical-align: bottom"></iframe>
+            <div class="name_of_track_container">
+                <h3 class="name_of_track">Classy Vibes - Poezia (Original mix)</h3>
+            </div>
+        </li>
+        <li>
+    </ul>
+ </div>
+ </body>
+ <html>
