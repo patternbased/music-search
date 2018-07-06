@@ -41,7 +41,7 @@
 	// 1. Create a database connection
 	$dbhost = "localhost";
 	$dbuser = "wordpress_dbuser";
-	$dbpass = "doody!pp74mizzle";
+	$dbpass = "pw_redacted";
 	$dbname = "patternbased_db";
 	$connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 	// Test if connection occured
