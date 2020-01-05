@@ -3,7 +3,7 @@
 $db = new mysqli(
   "localhost",
   "wordpress_dbuser",
-  "doody!pp74mizzle",
+  "pw_redacted",
   "patternbased_db"
 );
 
